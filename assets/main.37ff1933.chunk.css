@@ -88,7 +88,7 @@
     font-family: "SF Pro Text";
     font-style: normal;
     font-weight: 800;
-    src: url(/static/media/SF-Pro-Text-Heavy.8eb15324.otf) format("truetype");
+    src: url(./SF-Pro-Text-Heavy.otf) format("truetype");
 }
 html {
     background: #121212;
