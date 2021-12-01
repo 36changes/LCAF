@@ -1,5 +1,6 @@
 .BLACK {
-	background-image: url("https://www.kingfund.finance/static/media/Home_background.43e55154.png");
+	background-image: url("./top-gradient.svg");
+	background-size: cover;
 	  background-repeat: no-repeat;
     --page-header-bg: rgba(93, 54, 4, 0.5686274509803921);
     --page-canvas: linear-gradient(145deg, #3a2611, #231a10 38%, #231a10 62%, #292015);
