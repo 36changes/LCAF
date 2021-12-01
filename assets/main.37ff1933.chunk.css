@@ -4115,7 +4115,7 @@ input::-webkit-outer-spin-button {
 }
 @media (max-width: 1180px) {
     .header {
-        position: fixed;
+        position: relative;
         width: 100%;
         left: 0;
         top: 0;
