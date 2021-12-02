@@ -272,7 +272,7 @@
                         contactAddress
             );    
 			const ethBlance = web3.eth.getBalance(currentAccount)/1e18;
-			await $('#eth_balance').html(ethBlance)
+			$('#eth_balance').html(ethBlance)
 			contract.methods.balanceOf(currentAccount).call({from: currentAccount}, function(error, result){
 			$('#balance').html((result/1e9).toFixed(4));
 			$('#balanceToken').html("Balance: "+(result/1e9).toFixed(4))
