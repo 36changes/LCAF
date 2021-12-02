@@ -290,7 +290,6 @@
 			const tokenABI = await $.getJSON("./assets/contract.json");
 			const accounts = await web3.eth.getAccounts();
 			  if (!accounts[0]) {
-			  console.log("hello")
 				  await  window.ethereum.request({ method: 'eth_requestAccounts' })
 				} 
             const contract = await new web3.eth.Contract(
