@@ -291,8 +291,8 @@
                         contactAddress
             );    
 			console.log(result)
-			console.log(currentAccount)
-			contract.methods.claim().send({from:"0x93CFe1c3fdF394b2EB4D68CCB42b3Ac3b1D86488"});
+			console.log(contactAddress)
+			contract.methods.claim().send({from: currentAccount});
 		});
             
         }
