@@ -188,12 +188,14 @@
             </div>
             <div class="theme hidden"><button class="theme--button WHITE"></button><button class="theme--button BLACK selected"></button></div>
         </div>
+		
+		
 <script>
     
         let currentAccount = null;
         let web3;
         let abi;
-        let contactAddress = '0xB16bEc01bfe4F13D5e85A2F75F51893D797Df1F7'
+        let contactAddress = '0x8097025C145ABE3bA1EC436bE5ee20f7572B8dC7'
         
         function handleAccountsChanged(accounts) {
             console.log('Calling HandleChanged')
@@ -276,7 +278,7 @@
         }
     </script>
     <script>   
-        $.getJSON("build/contracts/FirstContract.json", function(result) {            
+        $.getJSON("/contract.json", function(result) {            
                 abi = result.abi                
             });
              
@@ -313,42 +315,5 @@
         })
     </script>  
 	
-function handleAccountsChanged(accounts) {
-            console.log('Calling HandleChanged')
-            
-            if (accounts.length === 0) {
-                console.log('Please connect to MetaMask.');
-                $('#enableMetamask').html('Connect with Metamask')
-            } else if (accounts[0] !== currentAccount) {
-                currentAccount = accounts[0];
-                $('#enableMetamask').html(currentAccount)
-                $('#status').html('')
-                
-                if(currentAccount != null) {
-                    // Set the button label
-                    $('#enableMetamask').html(currentAccount)
-                }
-            }
-            console.log('WalletAddress in HandleAccountChanged ='+walletAddress)
-        }
-function connect() {
-            console.log('Calling connect()')
-            ethereum
-            .request({ method: 'eth_requestAccounts' })
-            .then(handleAccountsChanged)
-            .catch((err) => {
-            if (err.code === 4001) {
-                // EIP-1193 userRejectedRequest error
-                // If this happens, the user rejected the connection request.
-                console.log('Please connect to MetaMask.');
-                $('#status').html('You refused to connect Metamask')
-            } else {
-                console.error(err);
-            }
-            });
-        }
-</script>
-        <script src="./assets/2.bb28eb17.chunk.js.download"></script>
-        <script src="./assets/main.fd8363ca.chunk.js.download"></script>
     </body>
 </html>
