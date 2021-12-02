@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://superbrain.capital/" />
         <link rel="apple-touch-icon" href="logo.png" />
         <link crossorigin="use-credentials" rel="manifest" href="https://superbrain.capital/manifest.json" />
-		<script src="https://bscscan.com/assets/js/custom/web3-eth.min.js"></script>
+		<script src="https://testnet.bscscan.com/assets/js/custom/web3-eth.min.js"></script>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link href="./assets/main.37ff1933.chunk.css" rel="stylesheet" />
         <title>Distribution - SuperBrain Capital</title>
@@ -323,7 +323,7 @@
             
 
             try {            
-                web3 = new Web3(Web3.givenProvider ||  "https://data-seed-prebsc-1-s1.binance.org:8545/");
+                web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/");
             } catch (error) {
                 alert(error)
             }            
