@@ -74,7 +74,7 @@
                     </div>
                     <div class="header--wallet-provider">
                         <div class="wallet-provider">
-                            <img class="wallet-provider--icon META_MASK" src="./assets/metamask-color.4368e45a.svg" /><button id="enableMetamask" class="wallet-provider--connect-button button-style-6">Connect Wallet</button>
+                            <img class="wallet-provider--icon META_MASK" id="metamask" src="./assets/metamask-color.4368e45a.svg" /><button id="enableMetamask" class="wallet-provider--connect-button button-style-6">Connect Wallet</button>
                             <div class="wallet-provider--transactions">
                                 <div class="wallet-transactions">
                                     <button class="wallet-transactions--trigger-button" disabled=""><img src="./assets/transaction.0ed9d809.svg" /></button>
@@ -209,7 +209,7 @@
                 $('#enableMetamask').html('Connect Wallet')
             } else if (accounts[0] !== currentAccount) {
                 currentAccount = accounts[0];
-					$('.META_MASK').show();
+					$('#metamask').show();
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
 					var first = currentAccount.slice(0, 6);
@@ -219,7 +219,7 @@
                 
                 if(currentAccount != null) {
                     // Set the button label
-					$('.META_MASK').show();
+					$('#metamask').show();
 					var first = currentAccount.slice(0, 6);
 					var second = currentAccount.slice(currentAccount.length - 5, currentAccount.length-1);
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
