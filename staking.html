@@ -203,13 +203,13 @@
             
             if (accounts.length === 0) {
                 console.log('Please connect to MetaMask.');
-					$('#metamask').hide();
+					$('#metamask').css("visibility", "hidden");
 					$('#enableMetamask').removeClass("wallet-provider--account-address");
 					$('#enableMetamask').addClass("wallet-provider--connect-button button-style-6");
                 $('#enableMetamask').html('Connect Wallet')
             } else if (accounts[0] !== currentAccount) {
                 currentAccount = accounts[0];
-					$('#metamask').show();
+					$('#metamask').css("visibility", "block");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
 					var first = currentAccount.slice(0, 6);
@@ -219,7 +219,7 @@
                 
                 if(currentAccount != null) {
                     // Set the button label
-					$('#metamask').show();
+					$('#metamask').css("visibility", "block");
 					var first = currentAccount.slice(0, 6);
 					var second = currentAccount.slice(currentAccount.length - 5, currentAccount.length-1);
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
