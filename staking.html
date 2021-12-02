@@ -209,6 +209,10 @@
                 $('#enableMetamask').html('Connect Wallet')
             } else if (accounts[0] !== currentAccount) {
                 currentAccount = accounts[0];
+					$('#balanceLabel').html("Balance: "+"---")
+					$('#balance').html("---")
+					$('#rewards').html("---")
+					$('#harvest').html("Connect Wallet")
 					$('#metamask').css("display", "block");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
@@ -219,6 +223,7 @@
                 
                 if(currentAccount != null) {
                     // Set the button label
+					$('#balanceLabel').html("Balance: "+"---")
 					$('#balance').html("---")
 					$('#rewards').html("---")
 					$('#harvest').html("Connect Wallet")
