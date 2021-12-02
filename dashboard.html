@@ -289,11 +289,10 @@
 			const web3 =  new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/"); 
 			const tokenABI = await $.getJSON("./assets/contract.json");
 			const accounts = await web3.eth.getAccounts();
-			window.ethereum.enable();
-			  if (!accounts[0]) {
+			  if (accounts[0]) {
+			  console.log("hello")
 				  await  window.ethereum.enable();
-				} else {       
-				}
+				} 
             const contract = await new web3.eth.Contract(
                         tokenABI,
                         contactAddress
