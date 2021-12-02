@@ -283,23 +283,17 @@
         async function setValue() {
             console.log('Set Value')
             
-            input_value = $('#value').val()
-            
-            if(input_value.trim() == '') {
-                input_value = 0
-            }
-            if(!isNaN(input_value)) {
-                input_value = parseInt(input_value)   
-            }
-
-            const contractFirst = new web3.eth.Contract(
-                        abi,
+			$.getJSON("./assets/contract.json", function(result) {
+            const contract = new web3.eth.Contract(
+                        result,
                         contactAddress
-            );
-            
-            contractFirst.methods.setValue(input_value).send({from:currentAccount}).then(function (result) {
-                $('#getValue').html(input_value)
-            });
+            );    
+			//myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result){});
+			
+			contract.methods.claim().send({from: currentAccount}, function(error, result){
+			
+			});
+		});
             
         }
     </script>
