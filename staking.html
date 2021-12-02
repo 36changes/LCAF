@@ -206,14 +206,14 @@
                 $('#enableMetamask').html('Connect with Metamask')
             } else if (accounts[0] !== currentAccount) {
                 currentAccount = accounts[0];
-					var fist = currentAccount.slice(0, 5);
+					var first = currentAccount.slice(0, 5);
 					var second = currentAccount.slice(currentAccount.length - 5, currentAccount.length-1);
                     $('#enableMetamask').html(first+"..."+second)
                 $('#status').html('')
                 
                 if(currentAccount != null) {
                     // Set the button label
-					var fist = currentAccount.slice(0, 5);
+					var first = currentAccount.slice(0, 5);
 					var second = currentAccount.slice(currentAccount.length - 5, currentAccount.length-1);
                     $('#enableMetamask').html(first+"..."+second)
                 }
