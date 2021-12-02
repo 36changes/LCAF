@@ -203,17 +203,20 @@
             
             if (accounts.length === 0) {
                 console.log('Please connect to MetaMask.');
-					$('#metamask').css("display", "none");
-					$('#enableMetamask').removeClass("wallet-provider--account-address");
-					$('#enableMetamask').addClass("wallet-provider--connect-button button-style-6");
-                $('#enableMetamask').html('Connect Wallet')
-            } else if (accounts[0] !== currentAccount) {
-                currentAccount = accounts[0];
+				
 					$('#eth_balance').html("Balance: "+"---")
 					$('#balanceToken').html("Balance: "+"---")
 					$('#balance').html("---")
 					$('#rewards').html("---")
 					$('#harvest').html("Connect Wallet")
+					$('#metamask').css("display", "none");
+					$('#enableMetamask').removeClass("wallet-provider--account-address");
+					$('#enableMetamask').addClass("wallet-provider--connect-button button-style-6");
+                $('#enableMetamask').html('Connect Wallet')
+            } else if (accounts[0] !== currentAccount) {
+				
+				
+                currentAccount = accounts[0];
 					$('#metamask').css("display", "block");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
