@@ -100,12 +100,12 @@
                                             <label id="balance">$2,505</label>
                                         </div>
                                     </div>
-                                    <div class="staking-overview--block--footer" id="balanceLabel">Balance: 0.0<span><span></div>
+                                    <div class="staking-overview--block--footer" id="balanceToken">Balance: 0.0<span><span></div>
                                 </div>
                                 <div class="staking-overview--block">
                                     <div class="staking-overview--block--title clearfix">$SBC rewards</div>
                                     <div class="staking-overview--block--main clearfix">
-                                        <div class="staking-overview--block--left"><img src="./assets/$SBC_icon_black_bg.eaff0bdd.svg" /><label>0.0</label></div>
+                                        <div class="staking-overview--block--left"><img src="./assets/$SBC_icon_black_bg.eaff0bdd.svg" /><label  id="rewards">0.0</label></div>
                                         <div class="staking-overview--block--right"><button class="button-style-7" id="harvest" disabled="">Harvest</button></div>
                                     </div>
                                     <div class="staking-overview--block--footer">Apy : 700%</div>
@@ -219,6 +219,9 @@
                 
                 if(currentAccount != null) {
                     // Set the button label
+					
+					$('#rewards').html("---")
+					$('#harvest').html("Connect Wallet")
 					$('#metamask').css("display", "block");
 					var first = currentAccount.slice(0, 6);
 					var second = currentAccount.slice(currentAccount.length - 5, currentAccount.length-1);
