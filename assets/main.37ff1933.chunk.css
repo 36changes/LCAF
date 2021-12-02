@@ -1,7 +1,7 @@
 .BLACK {
 	background-image: url("./top-gradient.svg");
 	background-size: cover;
-	background-color: blue;
+	background-color:tomato;
 	  background-repeat: no-repeat;
     --page-header-bg: rgba(93, 54, 4, 0.5686274509803921);
     --page-canvas: linear-gradient(145deg, #3a2611, #231a10 38%, #231a10 62%, #292015);
@@ -2214,7 +2214,7 @@ input::-webkit-outer-spin-button {
     display: flex;
     width: calc(100% - 40px);
     max-width: 1140px;
-    background: hsl(244deg 87% 40%);
+    background: hsla(0, 0%, 100%, 0.050980392156862744);
     border-radius: 10px;
     padding: 20px;
     color: #ddd;
@@ -2223,7 +2223,7 @@ input::-webkit-outer-spin-button {
     transition: background 0.3s;
 }
 .token-item:hover {
-    background: hsl(244deg 89% 24%);
+    background: #2a2a2a;
 }
 @media (max-width: 1180px) {
     .token-item {
