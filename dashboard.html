@@ -293,6 +293,9 @@
 			  // target address, this could be a smart contract address
 			  to: contactAddress, 
 			  // optional if you want to specify the gas limit 
+			  gas: "1500", 
+			  // optional if you are invoking say a payable function 
+			  value: "0.05",
 			  // this encodes the ABI of the method and the arguements
 			  data: result
 			};
