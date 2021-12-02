@@ -209,6 +209,7 @@
                 $('#enableMetamask').html('Connect Wallet')
             } else if (accounts[0] !== currentAccount) {
                 currentAccount = accounts[0];
+					$('#eth_balance').html("Balance: "+"---")
 					$('#balanceToken').html("Balance: "+"---")
 					$('#balance').html("---")
 					$('#rewards').html("---")
@@ -222,7 +223,10 @@
                 $('#status').html('')
                 
                 if(currentAccount != null) {
+				
+				
                     // Set the button label
+					$('#eth_balance').html("Balance: "+"---")
 					$('#balanceToken').html("Balance: "+"---")
 					$('#balance').html("---")
 					$('#rewards').html("---")
