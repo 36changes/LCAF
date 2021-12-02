@@ -213,7 +213,7 @@
 			
 					currentAccount = accounts[0];
 					$('#metamask').css("display", "block");
-					$('#harvest').html("harvest");
+					$('#harvest').html("Harvest");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
 					var first = currentAccount.slice(0, 6);
@@ -270,10 +270,10 @@
 			
 			contract.methods.balanceOf(currentAccount).call({from: currentAccount}, function(error, result){
 			$('#balance').html(result);
-			$('#balanceToken').html("Balance: "+result/1e12);
+			$('#balanceToken').html("Balance: "+(result/1e12).toFix(4);
 			});
 			contract.methods.getAccountDividendsInfo(currentAccount).call({from: currentAccount}, function(error, result){
-			$('#rewards').html(result[1]/1e12);
+			$('#rewards').html((result/1e12).toFix(4));
 			});
 		});
 
