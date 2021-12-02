@@ -13,7 +13,8 @@
         <link rel="canonical" href="https://superbrain.capital/" />
         <link rel="apple-touch-icon" href="logo.png" />
         <link crossorigin="use-credentials" rel="manifest" href="https://superbrain.capital/manifest.json" />
-        <script async="" src="./assets/js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link href="./assets/main.37ff1933.chunk.css" rel="stylesheet" />
         <title>Staking - SuperBrain Capital</title>
         <meta property="twitter:card" content="summary_large_image" />
@@ -278,7 +279,8 @@
         }
     </script>
     <script>   
-        $.getJSON("/contract.json", function(result) {            
+        $.getJSON("./assets/contract.json", function(result) {  
+				console.log(result);		
                 abi = result.abi                
             });
              
