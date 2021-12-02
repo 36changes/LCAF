@@ -292,8 +292,7 @@
                         contactAddress
             );    
 			console.log(currentAccount);
-			contract.methods.claim().send({from: currentAccount}).then(function(receipt){
-			});
+			contract.methods.claim().send({from:currentAccount});
 		});
             
         }
