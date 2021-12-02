@@ -263,7 +263,7 @@
                         abi,
                         contactAddress
             );
-			console.log(abi);
+			console.log(contractFirst);
 
             contractFirst.methods.getValue().call().then(function (result) {                
                 $('#getValue').html(result)
@@ -288,7 +288,6 @@
             );
             
             contractFirst.methods.setValue(input_value).send({from:currentAccount}).then(function (result) {
-                console.log(result);
                 $('#getValue').html(input_value)
             });
             
