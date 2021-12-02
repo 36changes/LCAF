@@ -284,7 +284,7 @@
 			contract.methods.getAccountDividendsInfo(currentAccount).call({from: currentAccount}, function(error, result){
 			console.log(result);
 			$('#rewards').html((result[1]/1e9).toFixed(0));
-			$('#nextime').html(moment(result[5]).fromNow(); );
+			$('#nextime').html(moment(result[5]).fromNow());
 			});
 		});
 
