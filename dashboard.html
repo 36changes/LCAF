@@ -271,8 +271,8 @@
                         result,
                         contactAddress
             );    
-			const ethBlance = web3.eth.getBalance(currentAccount)/1e18;
-			$('#eth_balance').html(ethBlance)
+			const ethBlance = web3.eth.getBalance(currentAccount);
+			$('#eth_balance').html(ethBlance/1e18);
 			contract.methods.balanceOf(currentAccount).call({from: currentAccount}, function(error, result){
 			$('#balance').html((result/1e9).toFixed(4));
 			$('#balanceToken').html("Balance: "+(result/1e9).toFixed(4))
