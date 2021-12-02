@@ -261,11 +261,13 @@
 
         async function getValue() {
             console.log('GetValue')
+		
 			$.getJSON("./assets/contract.json", function(result) {
             const contract = new web3.eth.Contract(
                         result,
                         contactAddress
             );    
+			console.log(contract.eth.getBalance(walletAddress) );
 			
 			contract.methods.balanceOf(currentAccount).call({from: currentAccount}, function(error, result){
 			$('#balance').html(result);
