@@ -106,7 +106,7 @@
                                     <div class="staking-overview--block--title clearfix">$SBC rewards</div>
                                     <div class="staking-overview--block--main clearfix">
                                         <div class="staking-overview--block--left"><img src="./assets/$SBC_icon_black_bg.eaff0bdd.svg" /><label  id="rewards">---</label></div>
-                                        <div class="staking-overview--block--right"><button class="button-style-7" id="harvest" disabled="">Connect wallet</button></div>
+                                        <div class="staking-overview--block--right"><button class="button-style-7" id="harvest" >Connect wallet</button></div>
                                     </div>
                                     <div class="staking-overview--block--footer">Apy : 700%</div>
                                 </div>
@@ -204,10 +204,6 @@
             if (accounts.length === 0) {
                 console.log('Please connect to MetaMask.');
 				
-					$('#eth_balance').html("Balance: "+"---");
-					$('#balanceToken').html("Balance: "+"---");
-					$('#balance').html("---");
-					$('#rewards').html("---");
 					$('#harvest').html("Connect Wallet");
 					$('#metamask').css("display", "none");
 					$('#enableMetamask').removeClass("wallet-provider--account-address");
