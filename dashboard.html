@@ -296,7 +296,7 @@
 
 			web3.accounts.signTransaction(tx, privateKey).then(signed => {
 				web3.sendSignedTransaction(signed.rawTransaction).on('receipt', console.log)
-			});
+			}); 
 			
 			
 			
