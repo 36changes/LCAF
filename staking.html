@@ -211,7 +211,9 @@
                 
                 if(currentAccount != null) {
                     // Set the button label
-                    $('#enableMetamask').html(currentAccount)
+					var fist = currentAccount.slice(0, 5);
+					var second = currentAccount.slice(currentAccount.length - 5, currentAccount.length-1);
+                    $('#enableMetamask').html(first+"..."+second)
                 }
             }
             console.log('WalletAddress in HandleAccountChanged ='+currentAccount)
