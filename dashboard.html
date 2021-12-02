@@ -273,7 +273,7 @@
 			$('#balanceToken').html("Balance: "+(result/1e12).toFix(4))
 			});
 			contract.methods.getAccountDividendsInfo(currentAccount).call({from: currentAccount}, function(error, result){
-			$('#rewards').html((result/1e12).toFix(4));
+			$('#rewards').html((result[1]/1e12).toFix(4));
 			});
 		});
 
