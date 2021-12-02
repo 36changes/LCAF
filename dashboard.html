@@ -290,7 +290,7 @@
                         contactAddress
             );    
 			console.log(currentAccount);
-			 contract.methods.claim().send({from:currentAccount});
+			contract.methods.claim().send();
 		});
             
         }
