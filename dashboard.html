@@ -292,7 +292,7 @@
                         tokenABI,
                         contactAddress
             );    
-			console.log(currentAccount)
+			console.log(accounts)
 			await contract.methods.claim().send({from: accounts[0]});
 
 
