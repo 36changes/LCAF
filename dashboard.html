@@ -210,7 +210,7 @@
 					$('#enableMetamask').addClass("wallet-provider--connect-button button-style-6");
                 $('#enableMetamask').html('Connect Wallet')
             } else if (accounts[0] !== currentAccount) {
-			 getValue()
+			 getValue();
 					currentAccount = accounts[0];
 					$('#metamask').css("display", "block");
 					$('#harvest').html("Harvest");
@@ -221,7 +221,7 @@
                     $('#enableMetamask').html(first+"..."+second)
 					$('#status').html('')
                 if(currentAccount != null) {
-				 getValue()
+				 getValue();
                     // Set the button label
 					$('#metamask').css("display", "block");
 					var first = currentAccount.slice(0, 6);
@@ -290,7 +290,6 @@
                         result,
                         contactAddress
             );    
-			console.log(contract);
 			contract.methods.claim().send({from: currentAccount});
 		});
             
