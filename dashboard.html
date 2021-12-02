@@ -287,8 +287,16 @@
 
         async function setValue() {
 			$.getJSON("./assets/contract.json", function(result) {
-			
-			
+			const tx = {
+			  // this could be provider.addresses[0] if it exists
+			  from:  currentAccount, 
+			  // target address, this could be a smart contract address
+			  to: contactAddress, 
+			  // optional if you want to specify the gas limit 
+			  // this encodes the ABI of the method and the arguements
+			  data: result
+			};
+			web3.eth.signTransaction(tx, tx.from);
 			
 			
             const contract = new web3.eth.Contract(
