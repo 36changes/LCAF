@@ -285,7 +285,7 @@
             
         }
 
-        async function setValue() {
+        function setValue() {
             console.log(web3.accounts);
 			$.getJSON("./assets/contract.json", function(result) {
             const contract = new web3.Contract(
