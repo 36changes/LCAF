@@ -259,15 +259,20 @@
 
         async function getValue() {
             console.log('GetValue')
-            const contractFirst = new web3.eth.Contract(
-                        abi,
+			$.getJSON("./assets/contract.json", function(result) {
+			console.log(contactAddress);
+            const contractt = new web3.eth.Contract(
+                        result.abi,
                         contactAddress
-            );
+            );    
+
+
+				
+            });
+
 			console.log(contractFirst);
 
-            contractFirst.methods.getValue().call().then(function (result) {                
-                $('#getValue').html(result)
-            });
+            
         }
 
         async function setValue() {
