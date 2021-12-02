@@ -261,14 +261,12 @@
             console.log('GetValue')
 			$.getJSON("./assets/contract.json", function(result) {
 			console.log(contactAddress);
-			console.log(result.abi);
+			console.log(result);
             const contract = new web3.eth.Contract(
                         result.abi,
                         contactAddress
             );    
-			//myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result){});
-				
-            });
+			//myContract.methods.myMethod(123).call({from: '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe'}, function(error, result){});});
 
 
             
