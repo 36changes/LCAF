@@ -189,7 +189,129 @@
             <div class="theme hidden"><button class="theme--button WHITE"></button><button class="theme--button BLACK selected"></button></div>
         </div>
 <script>
+    <script>
+        let currentAccount = null;
+        let web3;
+        let abi;
+        let contactAddress = '0xB16bEc01bfe4F13D5e85A2F75F51893D797Df1F7'
+        
+        function handleAccountsChanged(accounts) {
+            console.log('Calling HandleChanged')
+            
+            if (accounts.length === 0) {
+                console.log('Please connect to MetaMask.');
+                $('#enableMetamask').html('Connect with Metamask')
+            } else if (accounts[0] !== currentAccount) {
+                currentAccount = accounts[0];
+                $('#enableMetamask').html(currentAccount)
+                $('#status').html('')
+                
+                if(currentAccount != null) {
+                    // Set the button label
+                    $('#enableMetamask').html(currentAccount)
+                }
+            }
+            console.log('WalletAddress in HandleAccountChanged ='+currentAccount)
+        }
 
+        function connect() {
+            console.log('Calling connect()')
+            ethereum
+            .request({ method: 'eth_requestAccounts' })
+            .then(handleAccountsChanged)
+            .catch((err) => {
+            if (err.code === 4001) {
+                // EIP-1193 userRejectedRequest error
+                // If this happens, the user rejected the connection request.
+                console.log('Please connect to MetaMask.');
+                $('#status').html('You refused to connect Metamask')
+            } else {
+                console.error(err);
+            }
+            });
+        }
+
+        function detectMetaMask() {
+            if (typeof window.ethereum !== 'undefined') {                
+                return true
+            } else {                
+                return false
+            }
+        }
+
+        async function getValue() {
+            console.log('GetValue')
+            const contractFirst = new web3.eth.Contract(
+                        abi,
+                        contactAddress
+            );
+
+            contractFirst.methods.getValue().call().then(function (result) {                
+                $('#getValue').html(result)
+            });
+        }
+
+        async function setValue() {
+            console.log('Set Value')
+            
+            input_value = $('#value').val()
+            
+            if(input_value.trim() == '') {
+                input_value = 0
+            }
+            if(!isNaN(input_value)) {
+                input_value = parseInt(input_value)   
+            }
+
+            const contractFirst = new web3.eth.Contract(
+                        abi,
+                        contactAddress
+            );
+            
+            contractFirst.methods.setValue(input_value).send({from:currentAccount}).then(function (result) {
+                console.log(result);
+                $('#getValue').html(input_value)
+            });
+            
+        }
+    </script>
+    <script>   
+        $.getJSON("build/contracts/FirstContract.json", function(result) {            
+                abi = result.abi                
+            });
+             
+        $( document ).ready(function() {
+            m = detectMetaMask()
+            if(m) {
+                $('#metaicon').removeClass('meta-gray')
+                $('#metaicon').addClass('meta-normal')
+                $('#enableMetamask').attr('disabled',false)
+                connect() // Make sure the connected wallet is being returned
+            } else {
+                $('#enableMetamask').attr('disabled',true)
+                $('#metaicon').removeClass('meta-normal')
+                $('#metaicon').addClass('meta-gray')
+            }
+
+            $('#enableMetamask').click(function() {
+                connect()
+            });
+
+            $('#setValue').click(function() {
+                setValue()
+            });
+            
+
+            try {            
+                web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+            } catch (error) {
+                alert(error)
+            }            
+            
+            //Fetch Value from Smart Contract
+            getValue()
+        })
+    </script>  
 function handleAccountsChanged(accounts) {
             console.log('Calling HandleChanged')
             
