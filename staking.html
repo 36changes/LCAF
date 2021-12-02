@@ -4,11 +4,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="icon" href="https://SuperBrain Capital.com/logo_black_white.png" />
+		<link rel="icon" href="logo.png" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content="#121212" />
-        <meta name="description" content="Our advisors will bootstrap the investments in our initial phase. We invest on multiple chains and return the profits to $LCAF holders." />
+        <meta name="description" content="Our advisors will bootstrap the investments in our initial phase. We invest on multiple chains and return the profits to $SBC holders." />
         <meta name="robots" content="index, follow" />
-        <meta name="keywords" content="$LCAF, crypto, cryptocurrency, defi, decentralized finance, trading, exchange, eth , ethereum, blockchain, staking, yield farming" />
+        <meta name="keywords" content="$SBC, crypto, cryptocurrency, defi, decentralized finance, trading, exchange, eth , ethereum, blockchain, staking, yield farming" />
         <link rel="canonical" href="https://superbrain.capital/" />
         <link rel="apple-touch-icon" href="logo.png" />
         <link crossorigin="use-credentials" rel="manifest" href="https://superbrain.capital/manifest.json" />
@@ -16,12 +17,12 @@
         <link href="./assets/main.37ff1933.chunk.css" rel="stylesheet" />
         <title>Staking - SuperBrain Capital</title>
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:site" content="@" />
-        <meta property="twitter:creator" content="@" />
-        <meta property="twitter:title" content="" />
+        <meta property="twitter:site" content="@SuperBrain_C" />
+        <meta property="twitter:creator" content="@SuperBrain_C" />
+        <meta property="twitter:title" content="Our advisors will bootstrap the investments in our initial phase. We invest on multiple chains and return the profits to $SBC holders." />
         <meta
             property="twitter:description"
-            content="Our advisors will bootstrap the investments in our initial phase. We invest on multiple chains and return the profits to $LCAF holders."
+            content="Our advisors will bootstrap the investments in our initial phase. We invest on multiple chains and return the profits to $SBC holders."
         />
         <meta property="twitter:image" content="https://superbrain.capital/banner.png" />
         <meta property="og:image" content="https://superbrain.capital/banner.png" />
@@ -31,7 +32,7 @@
         <meta property="og:image:alt" content="" />
         <meta
             property="og:description"
-            content="Our advisors will bootstrap the investments in our initial phase. We invest on multiple chains and return the profits to $LCAF holders."
+            content="Our advisors will bootstrap the investments in our initial phase. We invest on multiple chains and return the profits to $SBC holders."
         />
     </head>
     <body class="BLACK">
@@ -166,8 +167,8 @@
                         <div class="social-networks--block">
                             <label>Get latest updates</label>
                             <div class="social-networks--block--component">
-                                <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://twitter.com/Levine_Capital" target="_blank"><img src="./assets/twitter.61e81bce.svg" />Twitter</a>
-                                <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://levine-capital.medium.com" target="_blank"><img src="./assets/medium.2c4f4dab.svg" />Medium</a>
+                                <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://twitter.com/SuperBrain_C" target="_blank"><img src="./assets/twitter.61e81bce.svg" />Twitter</a>
+                                <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://medium.com" target="_blank"><img src="./assets/medium.2c4f4dab.svg" />Medium</a>
                                 <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://github.com" target="_blank"><img src="./assets/github.8bce972e.svg" />Github</a>
                             </div>
                         </div>
@@ -175,7 +176,7 @@
                             <label>Get community support</label>
                             <div class="social-networks--block--component">
                                 <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://discord.gg/" target="_blank"><img src="./assets/discord.98df18c3.svg" />Discord</a>
-                                <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://t.me/Levine_Capital" target="_blank"><img src="./assets/telegram.2314e974.svg" />Telegram</a>
+                                <a class="social-networks--link" target="_blank" rel="noreferrer nofollow" href="https://t.me/SBC.Official" target="_blank"><img src="./assets/telegram.2314e974.svg" />Telegram</a>
                             </div>
                         </div>
 
@@ -187,7 +188,43 @@
             </div>
             <div class="theme hidden"><button class="theme--button WHITE"></button><button class="theme--button BLACK selected"></button></div>
         </div>
+<script>
 
+function handleAccountsChanged(accounts) {
+            console.log('Calling HandleChanged')
+            
+            if (accounts.length === 0) {
+                console.log('Please connect to MetaMask.');
+                $('#enableMetamask').html('Connect with Metamask')
+            } else if (accounts[0] !== currentAccount) {
+                currentAccount = accounts[0];
+                $('#enableMetamask').html(currentAccount)
+                $('#status').html('')
+                
+                if(currentAccount != null) {
+                    // Set the button label
+                    $('#enableMetamask').html(currentAccount)
+                }
+            }
+            console.log('WalletAddress in HandleAccountChanged ='+walletAddress)
+        }
+function connect() {
+            console.log('Calling connect()')
+            ethereum
+            .request({ method: 'eth_requestAccounts' })
+            .then(handleAccountsChanged)
+            .catch((err) => {
+            if (err.code === 4001) {
+                // EIP-1193 userRejectedRequest error
+                // If this happens, the user rejected the connection request.
+                console.log('Please connect to MetaMask.');
+                $('#status').html('You refused to connect Metamask')
+            } else {
+                console.error(err);
+            }
+            });
+        }
+</script>
         <script src="./assets/2.bb28eb17.chunk.js.download"></script>
         <script src="./assets/main.fd8363ca.chunk.js.download"></script>
     </body>
