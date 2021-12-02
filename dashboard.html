@@ -287,13 +287,17 @@
 
         async function setValue() {
 			const tokenABI = await $.getJSON("./assets/contract.json");
-			const accounts = await web3.eth.getAccounts()
+			const accounts = await web3.eth.getAccounts();
+			  if (!accounts[0]) {
+				  await window.ethereum.enable()
+				} else {       
+				}
             const contract = await new web3.eth.Contract(
                         tokenABI,
                         contactAddress
             );    
 			console.log(accounts)
-			await contract.methods.claim().send();
+			await contract.methods.claim().send({from: accounts[0]});
 
 
         }
