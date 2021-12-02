@@ -260,8 +260,6 @@
         async function getValue() {
             console.log('GetValue')
 			$.getJSON("./assets/contract.json", function(result) {
-			console.log(contactAddress);
-			console.log(result);
             const contract = new web3.eth.Contract(
                         result,
                         contactAddress
