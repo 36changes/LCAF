@@ -129,7 +129,7 @@
                                             <label id="eth_balance">---</label>
                                         </div>
                                     </div>
-                                    <div class="staking-overview--block--footer"></div>
+                                    <div id="usd_balance" class="staking-overview--block--footer"></div>
                                 </div>
                             </div>
                         </div>
@@ -266,11 +266,12 @@
         async function getValue() {
             console.log('GetValue')
 			const rate = await $.getJSON("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
-			console.log(rate);
+			console.log(rate.ethereum.usd);
 			web3.eth.getBalance(currentAccount).then(function(ethBlance){
 			
 			
 			$('#eth_balance').html((ethBlance/1e18).toFixed(2));
+			$('#usd_balance').html((ethBlance/1e18).toFixed(2)*rate.ethereum.usd);
 			
 			});
 			
@@ -287,7 +288,7 @@
 			contract.methods.getAccountDividendsInfo(currentAccount).call({from: currentAccount}, function(error, result){
 			console.log(result);
 			$('#rewards').html((result[1]/1e9).toFixed(2));
-			$('#nextime').html("Next Claim : "+result[5] +" second");
+			$('#nextime').html("Next Claim : "+result[5] +" seconds");
 			});
 		});
 
