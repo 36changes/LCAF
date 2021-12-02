@@ -210,7 +210,7 @@
 					$('#enableMetamask').addClass("wallet-provider--connect-button button-style-6");
                 $('#enableMetamask').html('Connect Wallet')
             } else if (accounts[0] !== currentAccount) {
-			 getValue();
+			
 					currentAccount = accounts[0];
 					$('#metamask').css("display", "block");
 					$('#harvest').html("Harvest");
@@ -219,9 +219,10 @@
 					var first = currentAccount.slice(0, 6);
 					var second = currentAccount.slice(currentAccount.length - 5, currentAccount.length-1);
                     $('#enableMetamask').html(first+"..."+second)
-					$('#status').html('')
+					$('#status').html('');
+					 getValue();
                 if(currentAccount != null) {
-				 getValue();
+				 
                     // Set the button label
 					$('#metamask').css("display", "block");
 					var first = currentAccount.slice(0, 6);
@@ -229,7 +230,8 @@
 					$('#harvest').html("Harvest");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
-                    $('#enableMetamask').html(first+"..."+second)
+                    $('#enableMetamask').html(first+"..."+second);
+					getValue();
                 }
             }
             console.log('WalletAddress in HandleAccountChanged ='+currentAccount)
