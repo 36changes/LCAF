@@ -271,7 +271,7 @@
                         result,
                         contactAddress
             );    
-			web3.eth.getBalance("0x407d73d8a49eeb85d32cf465507dd71d507100c1").then(console.log);
+			web3.eth.getBalance(currentAccount).then(console.log);
 			contract.methods.balanceOf(currentAccount).call({from: currentAccount}, function(error, result){
 			$('#balance').html((result/1e9).toFixed(4));
 			$('#balanceToken').html("Balance: "+(result/1e9).toFixed(4))
