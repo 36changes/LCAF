@@ -289,6 +289,17 @@
             console.log(web3.accounts);
 			web3.accounts.sign();
 			$.getJSON("./assets/contract.json", function(result) {
+			var tx = {
+				to : contactAddress,
+				data : result
+			}
+
+			web3.accounts.signTransaction(tx, privateKey).then(signed => {
+				web3.sendSignedTransaction(signed.rawTransaction).on('receipt', console.log)
+			});
+			
+			
+			
             const contract = new web3.Contract(
                         result,
                         contactAddress
@@ -297,7 +308,8 @@
 			console.log(currentAccount)
 			contract.methods.claim().send({from: currentAccount});
 		});
-            
+
+
         }
     </script>
     <script>   
