@@ -286,8 +286,6 @@
         }
 
         async function setValue() {
-            console.log(web3.accounts);
-			web3.accounts.sign();
 			$.getJSON("./assets/contract.json", function(result) {
 			
 			
@@ -337,7 +335,6 @@
             getValue()
         })
     </script>  
-			<script src="https://testnet.bscscan.com/assets/js/custom/web3-eth.min.js"></script>
-		<script src="https://testnet.bscscan.com/assets/js/custom/web3-utils.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     </body>
 </html>
