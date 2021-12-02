@@ -265,9 +265,11 @@
 
         async function getValue() {
             console.log('GetValue')
-			web3.eth.getBalance(currentAccount).then(function(ethBlance){
 			const rate = await $.getJSON("https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd");
-			console.log(ethBlance);
+			console.log(rate);
+			web3.eth.getBalance(currentAccount).then(function(ethBlance){
+			
+			
 			$('#eth_balance').html((ethBlance/1e18).toFixed(2));
 			
 			});
