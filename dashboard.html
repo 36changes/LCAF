@@ -65,12 +65,23 @@
 						
                     </div>
                     <div class="header--mobile-header">
-                        <button class="header--mobile-header--toggle-button">
+                        <button class="header--mobile-header--toggle-button" onclick="showMenu()">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="none" d="M0 0h24v24H0z"></path>
                                 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
                             </svg>
                         </button>
+												<div class="header--mobile-header--menu">
+    <div id="menuMobile" class="header--mobile-header--menu--main">
+         <a href="/"><button class="header--link-button">Home</button></a>
+		<a href="#Community"><button class="header--link-button">Community</button></a>
+		 <a href="https://www.dextools.io/app/ether/pair-explorer/" target="_blank"><button class="header--link-button" >Chart</button></a>
+		        <a target="_blank" href="https://levine-capital.medium.com/levine-capital-aggregator-fund-litepaper-ver-1-0-6647d2df2fc1"><button class="header--link-button">Litepaper</button></a>
+		
+    </div>
+
+<div class="header--mobile-header--wallet-provider clearfix"><div class="wallet-provider"><button id="enableMetamaskMobile" class="wallet-provider--connect-button button-style-6">Connect Wallet</button></div></div>
+</div>
                     </div>
                     <div class="header--wallet-provider">
                         <div class="wallet-provider">
@@ -209,6 +220,7 @@
 					$('#enableMetamask').removeClass("wallet-provider--account-address");
 					$('#enableMetamask').addClass("wallet-provider--connect-button button-style-6");
                 $('#enableMetamask').html('Connect Wallet')
+				$('#enableMetamaskMobile').html('Connect Wallet')
             } else if (accounts[0] !== currentAccount) {
 			
 					currentAccount = accounts[0];
@@ -219,6 +231,7 @@
 					$('#enableMetamask').addClass("wallet-provider--account-address")
 					var first = currentAccount.slice(0, 6);
 					var second = currentAccount.slice(currentAccount.length - 4, currentAccount.length);
+					$('#enableMetamaskMobile').html(first+"..."+second)
                     $('#enableMetamask').html(first+"..."+second)
 					$('#status').html('');
 					 getValue();
@@ -231,6 +244,7 @@
 					$('#harvest').html("Harvest");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
+					$('#enableMetamaskMobile').html(first+"..."+second)
                     $('#enableMetamask').html(first+"..."+second);
 					getValue();
                 }
@@ -347,7 +361,14 @@
 			setInterval(function(){ getValue()}, 5000);
         })
     </script>  
+	<script>
+	$(".header--mobile-header--menu").hide();
+		function showMenu(){
+		$(".header--mobile-header--menu").toggle();
+		}
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 			<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+			
     </body>
 </html>
