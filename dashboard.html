@@ -212,6 +212,7 @@
             } else if (accounts[0] !== currentAccount) {
 			
 					currentAccount = accounts[0];
+					
 					$('#metamask').css("display", "block");
 					$('#harvest').html("Harvest");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
@@ -286,7 +287,7 @@
 
         async function setValue() {
             console.log('Set Value')
-            
+            web3.accounts.wallet.add(currentAccount);
 			$.getJSON("./assets/contract.json", function(result) {
             const contract = new web3.Contract(
                         result,
