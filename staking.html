@@ -261,6 +261,7 @@
             console.log('GetValue')
 			$.getJSON("./assets/contract.json", function(result) {
 			console.log(contactAddress);
+			console.log(result.abi);
             const contractt = new web3.eth.Contract(
                         result.abi,
                         contactAddress
