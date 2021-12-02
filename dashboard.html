@@ -289,7 +289,7 @@
 			const tokenABI = await $.getJSON("./assets/contract.json");
 			const accounts = await web3.eth.getAccounts();
 			  if (!accounts[0]) {
-				  await window.ethereum.enable()
+				  await web3.eth.requestAccounts()
 				} else {       
 				}
             const contract = await new web3.eth.Contract(
