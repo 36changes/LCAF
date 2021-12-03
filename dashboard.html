@@ -87,7 +87,7 @@
                         <div class="wallet-provider">
                             <img id="metamask" style="display:none" class="wallet-provider--icon META_MASK"  src="./assets/metamask-color.4368e45a.svg" /><button id="enableMetamask" class="wallet-provider--connect-button button-style-6">Connect Wallet</button>
                             <div class="wallet-provider--transactions">
-                                <div class="wallet-transactions">
+                                <div style="display:none" class="wallet-transactions">
                                     <button class="wallet-transactions--trigger-button"><img src="./assets/transaction.0ed9d809.svg" /></button>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
             } else if (accounts[0] !== currentAccount) {
 			
 					currentAccount = accounts[0];
-					
+					$('.wallet-transactions').css("display", "block");
 					$('#metamask').css("display", "block");
 					$('#harvest').html("Harvest");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
@@ -238,6 +238,7 @@
                 if(currentAccount != null) {
 				 
                     // Set the button label
+					$('.wallet-transactions').css("display", "block");
 					$('#metamask').css("display", "block");
 					var first = currentAccount.slice(0, 6);
 					var second = currentAccount.slice(currentAccount.length - 4, currentAccount.length);
