@@ -114,9 +114,9 @@
                                     <div class="staking-overview--block--footer" id="balanceToken">Balance: ---<span><span></div>
                                 </div>
                                 <div class="staking-overview--block">
-                                    <div class="staking-overview--block--title clearfix">$SBC rewards</div>
+                                    <div class="staking-overview--block--title clearfix">Ethereum rewards</div>
                                     <div class="staking-overview--block--main clearfix">
-                                        <div class="staking-overview--block--left"><img src="./assets/token.png" /><label  id="rewards">---</label></div>
+                                        <div class="staking-overview--block--left"><img src="./assets/ETH_gray.02af24e8.svg" /><label  id="rewards">---</label></div>
                                         <div class="staking-overview--block--right"><button class="button-style-7" id="harvest" >Connect wallet</button></div>
                                     </div>
                                     <div id="nextime" class="staking-overview--block--footer"></div>
@@ -226,7 +226,7 @@
 					currentAccount = accounts[0];
 					$('.wallet-transactions').css("display", "block");
 					$('#metamask').css("display", "block");
-					$('#harvest').html("Harvest");
+					$('#harvest').html("Claim");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
 					var first = currentAccount.slice(0, 6);
@@ -242,7 +242,7 @@
 					$('#metamask').css("display", "block");
 					var first = currentAccount.slice(0, 6);
 					var second = currentAccount.slice(currentAccount.length - 4, currentAccount.length);
-					$('#harvest').html("Harvest");
+					$('#harvest').html("Claim");
 					$('#enableMetamask').removeClass("wallet-provider--connect-button button-style-6")
 					$('#enableMetamask').addClass("wallet-provider--account-address")
 					$('#enableMetamaskMobile').html(first+"..."+second)
@@ -304,7 +304,6 @@
 			console.log(result);
 			$('#rewards').html((result[1]/1e9).toFixed(2));
 			$('#balanceToken').html("Total Claimed: "+(result[2]/1e9).toFixed(2))
-			$('#nextime').html("Next Claim : "+result[5] +" seconds");
 			});
 		});
 
