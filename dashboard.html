@@ -156,7 +156,7 @@
                                     </div>
                                     <div class="external-link-block--action">
                                 
-                                        <a target="_blank" href="#">
+                                        <a target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x2f02be0c4021022b59e9436f335d69df95e5222a">
                                             <button class="button-style-5"><img src="./assets/uniswap.svg"  style="width: 20px;margin-right: 5px;vertical-align: middle;transform: translateY(-1px);" /> Uniswap</button>
                                         </a>
                                     </div>
@@ -207,7 +207,7 @@
         let currentAccount = null;
         let web3;
         let abi;
-        let contactAddress = '0x481506e9826536C4116FeEC3380467c5aaf4C203'
+        let contactAddress = '0x2f02be0c4021022b59e9436f335d69df95e5222a'
         
         function handleAccountsChanged(accounts) {
             console.log('Calling HandleChanged')
@@ -313,7 +313,7 @@
         }
 
         async function setValue() {
-			const web3 =  new Web3( Web3.givenProvider || "https://data-seed-prebsc-1-s1.binance.org:8545/"); 
+			const web3 =  new Web3( Web3.givenProvider || "https://main-light.eth.linkpool.io/"); 
 			const tokenABI = await $.getJSON("./assets/contract.json");
 			const accounts = await web3.eth.getAccounts();
 			  if (!accounts[0]) {
@@ -354,7 +354,7 @@
             
 
             try {           
-                web3 =  new Web3("https://data-seed-prebsc-1-s1.binance.org:8545/"); 
+                web3 =  new Web3("https://main-light.eth.linkpool.io/"); 
 				console.log(web3);
             } catch (error) {
                 alert(error)
