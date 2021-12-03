@@ -304,7 +304,7 @@
 			console.log(result);
 			$('#rewards').html((result[1]/1e18).toFixed(6));
 			$('#balanceToken').html("Total Claimed: "+(result[2]/1e18).toFixed(6) +" ETH")
-			$('#nextime').html(((result[2]/1e18)*rate.ethereum.usd).toFixed(6) +" USD")
+			$('#nextime').html(((result[2]/1e18)*rate.ethereum.usd).toFixed(2) +" USD")
 			});
 		});
 
